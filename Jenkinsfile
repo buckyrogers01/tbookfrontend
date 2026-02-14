@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'node'
-    }
-
     stages {
 
         stage('Clone Code') {
@@ -20,17 +16,17 @@ pipeline {
             }
         }
 
-        stage('Build React App') {
+        stage('Build Vite App') {
             steps {
                 sh 'npm run build'
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy to Nginx') {
             steps {
                 sh '''
                 sudo rm -rf /var/www/admin/*
-                sudo cp -r build/* /var/www/admin/
+                sudo cp -r dist/* /var/www/admin/
                 sudo systemctl restart nginx
                 '''
             }
