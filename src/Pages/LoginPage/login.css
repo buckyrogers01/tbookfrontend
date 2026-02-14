@@ -1,0 +1,108 @@
+
+/* ========== CSS FILE (travo-login.css) ========== */
+
+.travo-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #eef2ff, #ffffff);
+  padding: 20px;
+  font-family: Inter, system-ui, Arial, sans-serif;
+}
+
+.travo-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.travo-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.travo-header h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.travo-header p {
+  margin-top: 6px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.travo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.travo-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.travo-field label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.travo-field input {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.travo-field input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.travo-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.travo-btn:hover {
+  background: #1d4ed8;
+}
+
+.travo-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.travo-error {
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.travo-footer {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.travo-footer span {
+  color: #2563eb;
+  cursor: pointer;
+  font-weight: 500;
+}
