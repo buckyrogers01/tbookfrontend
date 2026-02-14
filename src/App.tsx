@@ -4,39 +4,40 @@ import { store } from "./store";
 import "./App.css";
 
 import TravoLoginPage from "./Pages/LoginPage";
-import Dashboard from "./Pages/Dashboard";
+import MainApplication from "./Pages/MainApplication";
 import type { JSX } from "react";
 
-// simple protected route
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
   const token = localStorage.getItem("travo_token");
-  return token ? children : <Navigate to="/login" />;
+  return token ? children : <Navigate to="/login" replace />;
 };
 
-function App() {
+export default function App() {
+  const token = localStorage.getItem("travo_token");
+
   return (
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          {/* login */}
-          <Route path="/login" element={<TravoLoginPage />} />
 
-          {/* protected routes */}
           <Route
-            path="/dashboard"
+            path="/login"
+            element={token ? <Navigate to="/" replace /> : <TravoLoginPage />}
+          />
+
+          <Route
+            path="/*"
             element={
               <PrivateRoute>
-                <Dashboard />
+                <MainApplication />
               </PrivateRoute>
             }
           />
 
-          {/* default redirect */}
-          <Route path="*" element={<Navigate to="/login" />} />
+          <Route path="*" element={<Navigate to={token ? "/" : "/login"} />} />
+
         </Routes>
       </BrowserRouter>
     </Provider>
   );
 }
-
-export default App;
