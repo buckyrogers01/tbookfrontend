@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "./login.css";
 import { loginUser } from "../../slices/authSlice";
 import type { RootState } from "../../store";
-
-// Travo Login Page - React + TypeScript + React Hook Form + Redux Toolkit
+import { useEffect } from "react";
 
 type LoginFormValues = {
   email: string;
@@ -13,7 +13,11 @@ type LoginFormValues = {
 
 export default function TravoLoginPage() {
   const dispatch = useDispatch<any>();
-  const { loading, error } = useSelector((state: RootState) => state.auth);
+  const navigate = useNavigate();
+
+  const { loading, error, token } = useSelector(
+    (state: RootState) => state.auth
+  );
 
   const {
     register,
@@ -24,6 +28,12 @@ export default function TravoLoginPage() {
   const onSubmit = (values: LoginFormValues) => {
     dispatch(loginUser(values));
   };
+
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [token]);
 
   return (
     <div className="travo-container">

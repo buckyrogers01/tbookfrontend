@@ -81,3 +81,41 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
+
+/* ADMIN DROPDOWN */
+
+.admin-container {
+  position: relative;
+}
+
+.admin {
+  cursor: pointer;
+  padding: 6px 12px;
+  background: #1f2937;
+  border-radius: 6px;
+}
+
+.admin-dropdown {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 150px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+.dropdown-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #111827;
+}
+
+.dropdown-item:hover {
+  background: #f3f4f6;
+}
+
+.logout {
+  color: #ef4444;
+}

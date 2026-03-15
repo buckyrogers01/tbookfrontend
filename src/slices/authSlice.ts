@@ -17,13 +17,15 @@ export const loginUser = createAsyncThunk(
   async (credentials: { email: string; password: string }, thunkAPI) => {
     try {
       const response = await fetch(
-            `${import.meta.env.VITE_API_BASE_URL}/auth/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials),
-      });
+        `${import.meta.env.VITE_API_BASE_URL}/auth/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(credentials),
+        }
+      );
 
       const data = await response.json();
 
@@ -32,7 +34,6 @@ export const loginUser = createAsyncThunk(
       }
 
       localStorage.setItem("travo_token", data.token);
-      window.location.href = "/dashboard";
 
       return data.token;
     } catch (err: any) {
